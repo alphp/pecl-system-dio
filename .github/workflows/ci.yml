@@ -88,7 +88,8 @@ jobs:
           echo $extension_artifact_name
 
           $from = $dir + '\php_dio.dll'
-          Compress-Archive $from $from.zip
+          $to = $from + ".zip"
+          Compress-Archive $from $to
           $extension_artifact = "ARTIFACT=" + $from
           echo $extension_artifact >> $env:GITHUB_ENV
           echo $extension_artifact
