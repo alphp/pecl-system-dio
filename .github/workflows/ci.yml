@@ -83,14 +83,12 @@ jobs:
           if ('nts' -eq '${{matrix.ts}}') { $artifact_name = $artifact_name + '-nts' }
           if ('x64' -eq '${{matrix.arch}}') { $artifact_name = $artifact_name + '-x86_64' }
 
-          $extension_artifact_name = "ARTIFACT_NAME=" + $artifact_name
+          $extension_artifact_name = "ARTIFACT_NAME=" + $artifact_name + ".zip"
           echo $extension_artifact_name >> $env:GITHUB_ENV
           echo $extension_artifact_name
 
           $from = $dir + '\php_dio.dll'
-          $to = $dir + '\' + $artifact_name + ".zip"
-          Compress-Archive $from $to
-          $extension_artifact = "ARTIFACT=" + $to
+          $extension_artifact = "ARTIFACT=" + $from
           echo $extension_artifact >> $env:GITHUB_ENV
           echo $extension_artifact
 
