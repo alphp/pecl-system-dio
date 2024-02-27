@@ -95,7 +95,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-            name: ${{env.ARTIFACT_NAME}}.zip
+            name: ${{env.ARTIFACT_NAME}}
             path: ${{env.ARTIFACT}}
       - name: Publish Binaries to Release
         if: ${{ startsWith(github.ref, 'refs/tags') }}
