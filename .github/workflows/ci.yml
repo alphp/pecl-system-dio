@@ -51,6 +51,9 @@ jobs:
           ts: ${{matrix.ts}}
           arch: ${{matrix.arch}}
           args: --enable-dio
+          run-tests: false
+      - name: test
+        run: nmake test TESTS="tests --show-diff"
       - name: Upload artifact to the release
         uses: php/php-windows-builder/release@v1
         with:
